@@ -1,0 +1,244 @@
+/* ============================================
+   RESPONSIVE CSS - Sistem Surat ULM
+   Perbaikan tampilan untuk semua ukuran layar
+   ============================================ */
+
+/* --- MOBILE: 0 - 576px --- */
+@media (max-width: 576px) {
+    /* Sidebar auto-hide di mobile */
+    .sidebar {
+        position: fixed;
+        left: -300px;
+        top: 0;
+        bottom: 0;
+        z-index: 1050;
+        width: 280px !important;
+        box-shadow: 4px 0 25px rgba(0,0,0,0.15);
+        transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        overflow-y: auto;
+        padding-top: 70px !important;
+        background: white;
+    }
+    body.sidebar-open .sidebar {
+        left: 0;
+    }
+    /* Overlay saat sidebar terbuka */
+    .sidebar-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.4);
+        z-index: 1040;
+        backdrop-filter: blur(2px);
+    }
+    body.sidebar-open .sidebar-overlay {
+        display: block;
+    }
+
+    /* Content full width */
+    .content {
+        padding: 1rem !important;
+        width: 100% !important;
+    }
+    .main-container {
+        flex-direction: column;
+    }
+
+    /* Navbar */
+    .navbar-brand span {
+        font-size: 0.85rem;
+    }
+    .navbar-custom {
+        padding: 0.5rem 0.75rem;
+    }
+
+    /* Tabel: scroll horizontal */
+    .table-responsive {
+        font-size: 0.8rem;
+        border-radius: 12px;
+        overflow: hidden;
+    }
+    .table th, .table td {
+        padding: 0.5rem 0.6rem;
+        white-space: nowrap;
+    }
+
+    /* Cards */
+    .card-menu .card-body {
+        padding: 1.25rem 1rem;
+    }
+    .card-menu .display-4 {
+        font-size: 2rem !important;
+    }
+    .card-menu .card-title {
+        font-size: 0.85rem;
+    }
+    .card-menu .card-body h5 {
+        font-size: 0.85rem;
+    }
+
+    /* Form pages */
+    .form-card .card-body {
+        padding: 1.25rem !important;
+    }
+    .form-card .card-header {
+        padding: 1rem !important;
+    }
+    .form-card .card-header h5 {
+        font-size: 1rem;
+    }
+
+    /* Pagination */
+    .pagination .page-link {
+        padding: 0.35rem 0.6rem;
+        font-size: 0.8rem;
+    }
+
+    /* Headings */
+    h3 {
+        font-size: 1.2rem;
+    }
+
+    /* Welcome banner */
+    .welcome-banner {
+        padding: 1rem 1.25rem;
+    }
+    .welcome-banner h4 {
+        font-size: 1rem;
+    }
+    .welcome-banner p {
+        font-size: 0.85rem;
+    }
+
+    /* Login */
+    .login-card {
+        margin: 1rem;
+        border-radius: 16px;
+    }
+    .login-card .card-header-custom {
+        padding: 1.5rem 1rem;
+    }
+    .login-card .card-body {
+        padding: 1.5rem;
+    }
+}
+
+/* --- TABLET: 577px - 991px --- */
+@media (min-width: 577px) and (max-width: 991px) {
+    .sidebar {
+        width: 220px !important;
+    }
+    .sidebar .nav-link {
+        font-size: 0.88rem;
+        padding: 0.5rem 0.75rem;
+    }
+    .content {
+        padding: 1.5rem !important;
+    }
+    .card-menu .display-4 {
+        font-size: 2.5rem !important;
+    }
+    .card-menu .card-title {
+        font-size: 0.9rem;
+    }
+    h3 {
+        font-size: 1.3rem;
+    }
+}
+
+.sidebar {
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1), padding 0.3s ease, border-right 0.3s ease !important;
+}
+
+/* --- SIDEBAR TOGGLED (Desktop) --- */
+@media (min-width: 992px) {
+    body.sidebar-toggled .sidebar {
+        width: 80px !important;
+    }
+    body.sidebar-toggled .sidebar .nav-link .link-text,
+    body.sidebar-toggled .sidebar .sidebar-heading,
+    body.sidebar-toggled .sidebar .text-muted span {
+        display: none !important;
+    }
+    body.sidebar-toggled .sidebar .nav-link {
+        justify-content: center !important;
+    }
+    body.sidebar-toggled .sidebar .nav-link:hover {
+        transform: none !important;
+    }
+    body.sidebar-toggled .sidebar .nav-link .bi {
+        margin-right: 0 !important;
+    }
+}
+
+/* --- GENERAL IMPROVEMENTS --- */
+
+/* Smooth transitions everywhere */
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Better touch targets on mobile */
+@media (max-width: 768px) {
+    .btn {
+        min-height: 40px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .btn-sm {
+        min-height: 34px;
+        padding: 0.3rem 0.75rem;
+    }
+    .nav-link {
+        padding: 0.6rem 1rem;
+    }
+    .dropdown-item {
+        padding: 0.6rem 1rem;
+    }
+
+    /* Fix admin table on mobile */
+    .table .btn-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+    .table .btn-group .btn {
+        width: 100%;
+    }
+
+    /* Filter buttons wrap */
+    .btn-group {
+        flex-wrap: wrap;
+        gap: 4px;
+    }
+}
+
+/* Fix for very small screens */
+@media (max-width: 360px) {
+    .content {
+        padding: 0.75rem !important;
+    }
+    .card-menu .display-4 {
+        font-size: 1.5rem !important;
+    }
+    .card-menu .card-title, .card-menu .card-body h5 {
+        font-size: 0.75rem;
+    }
+    .welcome-banner {
+        padding: 0.75rem 1rem;
+    }
+}
+
+/* Print styles - hide non-essential elements when printing */
+@media print {
+    .sidebar, .navbar, .breadcrumb, .btn, .pagination, .welcome-banner {
+        display: none !important;
+    }
+    .content {
+        padding: 0 !important;
+    }
+    .table {
+        box-shadow: none;
+    }
+}
